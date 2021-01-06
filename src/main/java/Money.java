@@ -1,4 +1,4 @@
-public class Money {
+public class Money implements Expression {
 
     protected String currency;
     protected int amount;
@@ -25,6 +25,10 @@ public class Money {
     Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
     };
+
+    Expression plus(Money addend) {
+        return new Money(amount + addend.amount, currency);
+    }
 
     String currency() {
         return currency;
